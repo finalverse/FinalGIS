@@ -273,9 +273,76 @@
       "path": "storm/merged-native-tests.log",
       "bytes": 374,
       "sha256": "9bed7822800d9aea98111889cde84f3281cb2332a6ec096972b844a3af4ad16f"
+    },
+    {
+      "path": "spatial-render-readback/readback.json",
+      "bytes": 2473,
+      "sha256": "25a5ad3a443e0baf9a8d85fe3885d154944831ec8e5d6fef786842ee3b6f459c"
+    },
+    {
+      "path": "spatial-render-readback/world.fwd.json",
+      "bytes": 9804,
+      "sha256": "20f22146d4c213d642b90968059b18bcca387db11fa03e8045dab21e1028e0db"
+    },
+    {
+      "path": "spatial-render-readback/received/graph.json",
+      "bytes": 10682,
+      "sha256": "f73f96329b461f45b31c51204e2a7915b9e14a85a1bf6b778f936986091efc7a"
+    },
+    {
+      "path": "storm/spatial-readback-metal.png",
+      "bytes": 63174,
+      "sha256": "577ef874a97f8ea656fe3b46ed25d9d210ff44de747f07bf81b76685bb3fa8ac"
+    },
+    {
+      "path": "storm/spatial-readback-metal.log",
+      "bytes": 7163,
+      "sha256": "72e2e050648f8eea2cc975139803e65b6f459a1412cc875c03592ba3c03df782"
+    },
+    {
+      "path": "finalgis-bridge-tests.log",
+      "bytes": 470,
+      "sha256": "d771a99f2e8dfa0c891fa4eae8eaa3b68c71614c4f7472a5fa4117b3822d121e"
+    },
+    {
+      "path": "finalgis-bridge-asan-tests.log",
+      "bytes": 469,
+      "sha256": "b7b5418400befdeb68a17eed88a18a81432d3b8fb4d1d3551fb2098b19f96ee1"
+    },
+    {
+      "path": "spatial-render-readback/objects/b8f9aace7d803f3a73db08b2cc3c8f9d5cc7f4220e49ac682b0eef3662d45d4d",
+      "bytes": 222092,
+      "sha256": "b8f9aace7d803f3a73db08b2cc3c8f9d5cc7f4220e49ac682b0eef3662d45d4d"
+    },
+    {
+      "path": "spatial-render-readback/objects/a464dd18a75b106428a3f88f596ea4f61719efb3a781a0a5c753ccc5cf99481c",
+      "bytes": 197160,
+      "sha256": "a464dd18a75b106428a3f88f596ea4f61719efb3a781a0a5c753ccc5cf99481c"
+    },
+    {
+      "path": "spatial-render-readback/objects/95de86eebe28f3bf18a3feb29d9f85f6fbd8af58c9f2f63639b968a0c72f4589",
+      "bytes": 85880,
+      "sha256": "95de86eebe28f3bf18a3feb29d9f85f6fbd8af58c9f2f63639b968a0c72f4589"
+    },
+    {
+      "path": "spatial-render-readback/received/0836231f9efb87d5130e82f45177a60c4667ab9dfd9dca72ba8a8bc98bb87321",
+      "bytes": 222064,
+      "sha256": "0836231f9efb87d5130e82f45177a60c4667ab9dfd9dca72ba8a8bc98bb87321"
+    },
+    {
+      "path": "spatial-render-readback/received/d8b223fa751577a75a67f6583681be832a5583dff5678d7916acb97ee38dd4fd",
+      "bytes": 85848,
+      "sha256": "d8b223fa751577a75a67f6583681be832a5583dff5678d7916acb97ee38dd4fd"
+    },
+    {
+      "path": "spatial-render-readback/received/57b10c95013eefc9f0bc8f8287385097079b9952935f269768369a76aa2a48cc",
+      "bytes": 197128,
+      "sha256": "57b10c95013eefc9f0bc8f8287385097079b9952935f269768369a76aa2a48cc"
     }
   ],
   "final_remote_receipt": "/Users/wenyan/Finalverse/dev/omega-xiii-3-4-20261119/OMEGA-XIII-3-4-FINAL-delivery.json",
   "deployed": false,
-  "accepted_release_tagged": false
+  "accepted_release_tagged": false,
+  "static_publication_readback_verified": true,
+  "consumer_bridge_implementation_commit": "283ad46320ccda36430a9ed26514e1ecc947d08e"
 }
