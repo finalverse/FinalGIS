@@ -8,7 +8,7 @@
     "storm": "43c444a09ced3961185cf5aa963edd2ebbf5d24a",
     "studio": "fecfb97d1bb8dffba665857757fde393c4811d88",
     "spatialdb": "5b1adb181d3e731d416b59a57736493a3c21cf7d",
-    "finalgis": "f1bbcd051cbe205061fbf896dd7ed55e55382a72"
+    "finalgis": "939cabecc583cab4f31cb2d48e843e7177a9c257"
   },
   "native_sdk_source_sha256": "13206ccefb7e5f87845113a165ce9707009e230ddf2046c7e085844079bc2687",
   "fwd_source_sha256": "e3bf61cf44559226933655180111fb747f88d4e89427acf07690cbff1ced8822",
@@ -32,12 +32,12 @@
     {
       "path": "finalgis-final-tests.log",
       "bytes": 362,
-      "sha256": "c9e795d13cf99c4ea97c3c29b04d87fda291ffdaf52ad2616efb3d5b2fc718be"
+      "sha256": "aa8e8a93dfb2b31971ab3070a60451b31286f8cdc95915ed0c7de50f0df912ab"
     },
     {
       "path": "finalgis-asan-final-tests.log",
       "bytes": 361,
-      "sha256": "e29808ef3930fb0fdd9ac7f4950121cd16093f34301ad4806d126c6342d10f38"
+      "sha256": "964541464c8138065f8079c73c59c050c71a8612137e99e94bd81a51d0dd94ef"
     },
     {
       "path": "qgis-ltr-integration.json",
