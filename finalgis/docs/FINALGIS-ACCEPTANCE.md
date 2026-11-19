@@ -29,3 +29,5 @@ Local evidence root: /Users/wenyan/Finalverse/dev/omega-xiii-3-4-20261119. Key f
 Known integration gates: source-built QGIS distribution; full rebrand/signing/notarized installer; general multi-operation agent planning; remote provider acceptance; geographic-v3 true-frame publication (current asset publication uses an advisory anchor); dynamic global LOD/admin/interior data; image/animation/rigging profile; Viewer OGRE embedding; authorized FWD→MutSea entity association and new WorldLine causality. The existing Rust engine remains authoritative. No accepted worlds or histories are changed.
 
 See FINALGIS-DELIVERY.json for exact implementation commits and hashed evidence. Core's OMEGA-XIII-3-ACCEPTANCE.md records the shared pipeline and final main merge receipt.
+
+The final SpatialDB-to-Storm edge is now directly evidenced:3authenticated finest-leaf GLBs, unchanged BIN hashes, FWDv3native admission and180Metalframes rendered from the material-bound readback. This closes the local static-asset handoff, without changing the remaining QGIS source-build/Viewer embedding/MutSea association gates.
