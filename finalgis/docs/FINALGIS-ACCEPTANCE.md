@@ -1,4 +1,4 @@
-# FinalGIS0.1 engineering acceptance
+# FinalGIS 0.1 engineering acceptance
 
 Working local foundation; fourteen criteria demonstrated, one partial. Main-branch integration does not mean an accepted release, full QGIS fork, production deployment or MutSea authority cutover.
 
@@ -18,11 +18,11 @@ Working local foundation; fourteen criteria demonstrated, one partial. Main-bran
 | Versioned geographic asset | PASS | Raw FWDv1 and refined FWDv2 immutable assets |
 | SpatialDB interoperability | PASS | Existing compiler/seal, isolated PostGIS finalization and authenticated readback/restart |
 | Existing rendering path | PASS | Actual standalone Storm OGRE Metal frames; Viewer embedding not claimed |
-| Reproducible tests/evidence | PASS | Native Release/ASan, PyQGIS, Studio, FWD/Forge, SpatialDB and artifact hashes; macOSarm64 only |
+| Reproducible tests/evidence | PASS | Native Release/ASan, PyQGIS, Studio, FWD/Forge, SpatialDB and artifact hashes; macOS arm64 only |
 
-Reconstructed vs generated content:45roof and93road source features inspected;17roof proxies and41road segments in a260m output. Buildings are constant12m estimated massing; materials, road width and lake/fictional geography are synthesized. The DEM's orthometric datum and projected grid origin remain explicit. No geographic accuracy is claimed for proxy facades/heights.
+Reconstructed vs generated content:45 roof and93 road source features inspected;17 roof proxies and41 road segments in a260 m output. Buildings are constant12 m estimated massing; materials, road width and lake/fictional geography are synthesized. The DEM's orthometric datum and projected grid origin remain explicit. No geographic accuracy is claimed for proxy facades/heights.
 
-Executed validation:6native workflow tests in Release and ASan/UBSan (source tamper, nonfinite CRS, replay, corrupt geometry, unauthorized tool/remote request, no-overwrite, fallback), QGIS3.44.15 and4.2.3 native provider/Processing/project tests,41CoreFWD admission checks plus C17 ABI and153077fuzz iterations, Forge durable/restart/concurrency checks,16Studio unit checks+6native refusals, Storm CPU/native/sanitizer admission tests and real Metal frame readback. SpatialDB general synthetic mode passes with4explicit historical actual-application skips; the separate7authored-seal trigger cases and readback/restart checks pass. No Windows/Linux/Intel build, marketplace-wide plugin parity or GPU memory/timing certification is claimed.
+Executed validation:6 native workflow tests in Release and ASan/UBSan (source tamper, nonfinite CRS, replay, corrupt geometry, unauthorized tool/remote request, no-overwrite, fallback), QGIS 3.44.15 and4.2.3 native provider/Processing/project tests,41Core FWD admission checks plus C17 ABI and153077fuzz iterations, Forge durable/restart/concurrency checks,16Studio unit checks+6 native refusals, Storm CPU/native/sanitizer admission tests and real Metal frame readback. SpatialDB general synthetic mode passes with4 explicit historical actual-application skips; the separate7 authored-seal trigger cases and readback/restart checks pass. No Windows/Linux/Intel build, marketplace-wide plugin parity or GPU memory/timing certification is claimed.
 
 Local evidence root: /Users/wenyan/Finalverse/dev/omega-xiii-3-4-20261119. Key files: finalgis-final-tests.log, finalgis-asan-final-tests.log, qgis-ltr-integration.json, qgis-integration.json, qwen-plan.json, fwd-forge/final-forge-receipts.json, studio/reproducibility.json, spatial-readback.json, spatial-authored-seal-tests.json, spatial-regression-final/summary.json, storm/*-final-metal.png. Failed prototypes are retained and explicitly excluded from successful final-stage claims.
 

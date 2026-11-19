@@ -1,0 +1,281 @@
+{
+  "schema": "finalverse.omega-xiii-3-4-delivery/1",
+  "date": "2026-11-19",
+  "status": "locally verified implementation; main integration authorized; full acceptance gates remain",
+  "implementation_commits": {
+    "core": "b683be82a97bf4a7f27abb3e8695beaec962b9a4",
+    "cloud": "c324d91008bc3cc41b9bb2a6fa6b2fb736c8e31e",
+    "storm": "43c444a09ced3961185cf5aa963edd2ebbf5d24a",
+    "studio": "fecfb97d1bb8dffba665857757fde393c4811d88",
+    "spatialdb": "5b1adb181d3e731d416b59a57736493a3c21cf7d",
+    "finalgis": "f1bbcd051cbe205061fbf896dd7ed55e55382a72"
+  },
+  "native_sdk_source_sha256": "13206ccefb7e5f87845113a165ce9707009e230ddf2046c7e085844079bc2687",
+  "fwd_source_sha256": "e3bf61cf44559226933655180111fb747f88d4e89427acf07690cbff1ced8822",
+  "source_worlds_unchanged": true,
+  "new_accepted_world_commands": 0,
+  "scope": "native geographic creation, strict immutable FWD, Studio/Cycles, reviewed Forge, owned SpatialDB fixture and standalone Storm Metal",
+  "finalgis_criteria": {
+    "passed": 14,
+    "partial": 1,
+    "partial_reason": "QGIS foundation is official prebuilt; source not rebuilt"
+  },
+  "remaining": [
+    "Viewer OGRE scene embedding",
+    "Authoritative FWD scene/MutSea association and WorldLine commits",
+    "True geographic-v3 frame placement (current v2 anchor advisory)",
+    "Full QGIS source build/distribution and full rebrand",
+    "Remote provider, animation/texture, global LOD and cross-platform acceptance"
+  ],
+  "evidence_root": "/Users/wenyan/Finalverse/dev/omega-xiii-3-4-20261119",
+  "evidence": [
+    {
+      "path": "finalgis-final-tests.log",
+      "bytes": 362,
+      "sha256": "c9e795d13cf99c4ea97c3c29b04d87fda291ffdaf52ad2616efb3d5b2fc718be"
+    },
+    {
+      "path": "finalgis-asan-final-tests.log",
+      "bytes": 361,
+      "sha256": "e29808ef3930fb0fdd9ac7f4950121cd16093f34301ad4806d126c6342d10f38"
+    },
+    {
+      "path": "qgis-ltr-integration.json",
+      "bytes": 684,
+      "sha256": "8b56fce5fa70f63910be1d362ff315442abe4a04c7b39403a0dce35129a0e3b0"
+    },
+    {
+      "path": "qgis-integration.json",
+      "bytes": 695,
+      "sha256": "46864ca13833d27f01f2c47e5ac94579e497d52b23455445dff7d16ffd1d143f"
+    },
+    {
+      "path": "qwen-plan.json",
+      "bytes": 814,
+      "sha256": "2a363e8646e78383abe51416a5951a59e9fb60cb17249f3fa574bafd9171ef1d"
+    },
+    {
+      "path": "model-discovery.json",
+      "bytes": 195,
+      "sha256": "5e6cb3f6f84d510e583f215037e0463c8b628cdc4d29a2f46aa42753599c2885"
+    },
+    {
+      "path": "native-performance.json",
+      "bytes": 13689,
+      "sha256": "ddb41ad0ec7f21949d943a5e152f98303c862ffe7c31af978fe36c58d97fcc88"
+    },
+    {
+      "path": "native-performance-process.txt",
+      "bytes": 777,
+      "sha256": "40a3f9be0cea4a868bf2f6ff682b8508d6293dc09b15864717f142952972ac8b"
+    },
+    {
+      "path": "preservation.json",
+      "bytes": 1280,
+      "sha256": "420dde9cf51ec188ee5562a97be87787bda817b15f72688c7dd60f7e31a970e3"
+    },
+    {
+      "path": "fwd-forge/fwd-tests.log",
+      "bytes": 348,
+      "sha256": "1e268c2e644ee2f76239d47d4b11f5f8333f40631f28bf4e0c3f57cf1ac5078c"
+    },
+    {
+      "path": "fwd-forge/fwd-asan-tests.log",
+      "bytes": 347,
+      "sha256": "1f18d601065851d2b8693a1f397871df79697bec64340363c5d03b7159355324"
+    },
+    {
+      "path": "fwd-forge/fwd-fuzz.log",
+      "bytes": 539665,
+      "sha256": "e952764a1f561e424087c7ddccc86cd152b72c247843f7b09a8486bfd4c818b8"
+    },
+    {
+      "path": "fwd-forge/forge-final-tests.log",
+      "bytes": 261,
+      "sha256": "b12bf9f49df470e8d282c45ab56233755efc7d6e641c6d609ed0b1eada523d6b"
+    },
+    {
+      "path": "fwd-forge/forge-asan-tests.log",
+      "bytes": 260,
+      "sha256": "2dd8208b3999e3889dc85c09b621ffc8002cb9b3e438ede990dabfe68768b525"
+    },
+    {
+      "path": "fwd-forge/final-forge-receipts.json",
+      "bytes": 11576,
+      "sha256": "2d201676284025f97fe08b354f51fe360ed8ef167b064939f73461374ca66c8e"
+    },
+    {
+      "path": "montreal-v2/world.fwd.json",
+      "bytes": 4002,
+      "sha256": "b0a0e3b62377c72b659fc241ebc4ba86e2cb7802ba833ef42feb2c414cddfad2"
+    },
+    {
+      "path": "montreal-v2/workflow.json",
+      "bytes": 17860,
+      "sha256": "9d250a09340ca92d29115dc2542e7553ad88f1842d0590c7a3cdaf45da15bb79"
+    },
+    {
+      "path": "aetheria-v2/world.fwd.json",
+      "bytes": 1826,
+      "sha256": "3fa0a1157a575a1c04c77b72d9feb97df1decfd36134e88d0af58e815b6fd211"
+    },
+    {
+      "path": "aetheria-v2/workflow.json",
+      "bytes": 953,
+      "sha256": "8054f5c0a04bcb31616ed844f9086da474ad0ce2de8aef4de2d8f696dbe59d52"
+    },
+    {
+      "path": "studio/montreal-final/world.fwd.json",
+      "bytes": 5201,
+      "sha256": "0b9cdc77e79e4bd282ced2e1d7c0549bb77e5fb00adebdeea61d3b2856123853"
+    },
+    {
+      "path": "studio/montreal-final/receipt.json",
+      "bytes": 3711,
+      "sha256": "8705e86059b5b9b342a82036ca6416fd597c1fc16df572b06756b365dd3c7437"
+    },
+    {
+      "path": "studio/montreal-final/cycles-preview.png",
+      "bytes": 239350,
+      "sha256": "f04ab4e2613e5f457f05070dd1be7bb2895c243ef3b26a92f987e45eefeeb47a"
+    },
+    {
+      "path": "studio/aetheria-final/world.fwd.json",
+      "bytes": 2955,
+      "sha256": "ca1f4bdf5e05ea10aba075231b77c0067f1c0561142f6891c39ab084f2326833"
+    },
+    {
+      "path": "studio/aetheria-final/receipt.json",
+      "bytes": 3597,
+      "sha256": "f7a536f043f15b24b0c060525fefb6c0721447db932ff8625a17280f6139d25c"
+    },
+    {
+      "path": "studio/aetheria-final/cycles-preview.png",
+      "bytes": 203719,
+      "sha256": "6eba55c88a5e88d2404cfbb0893db4fb74f16819d2cb63dadd4edaa7f7520d7e"
+    },
+    {
+      "path": "studio/reproducibility.json",
+      "bytes": 419,
+      "sha256": "0618a1631b6fa01dcaf5f9ddc44a75e55cda3299d32677204c159df840e13aaa"
+    },
+    {
+      "path": "studio/unit-tests.log",
+      "bytes": 115,
+      "sha256": "f901fbabb56c390d7ec0076b3e0fd921737c4ab64cd9dae784da066e2bb10567"
+    },
+    {
+      "path": "studio/negative.log",
+      "bytes": 942,
+      "sha256": "c2f0a284e095a3d3d36937eaced2e6dd99a25cbe0583a30b82026388a4caa9a8"
+    },
+    {
+      "path": "studio/montreal-final-restart.log",
+      "bytes": 1599,
+      "sha256": "fd1f9330e67c4153b0bca276c24dc4f93b80da8e57125c514a5bcef5f12505b1"
+    },
+    {
+      "path": "studio/aetheria-final-restart.log",
+      "bytes": 1444,
+      "sha256": "95f514a2846421bebd45d0d47dac544de091bad4456891d03a979bc88796dc61"
+    },
+    {
+      "path": "spatial-readback.json",
+      "bytes": 679,
+      "sha256": "69d440bf47cd91f7c7e8723c05d6611587c9d10801cdff2212d66441eab5f607"
+    },
+    {
+      "path": "spatial-authored-seal-tests.json",
+      "bytes": 409,
+      "sha256": "867775f52e42bca91573dfa8702800fedbf82bba83b83c0de905b1038bb4c654"
+    },
+    {
+      "path": "spatial-publication.json",
+      "bytes": 625,
+      "sha256": "a5a79cf36b5dff0940507d654789d91abf629ec795ef8cca9798007f703ef195"
+    },
+    {
+      "path": "spatial-regression-final/summary.json",
+      "bytes": 734,
+      "sha256": "b7b0e169a8b31416d816f7ee8fc2c31cdb82cf67cec35e26ff4e632889d6ee1e"
+    },
+    {
+      "path": "spatial-regression-final/operations.json",
+      "bytes": 418,
+      "sha256": "ab3f4331e4ed891f8fed3e18e0941cfecd36fb42493c5de6bf83d722b0086caf"
+    },
+    {
+      "path": "spatial-montreal-v2/exchange.json",
+      "bytes": 1302,
+      "sha256": "e1e39f7e4fc0996b72657a4b80d708df7c93416bab8a97c789d31084f15fa76c"
+    },
+    {
+      "path": "storm/montreal-final-metal.png",
+      "bytes": 63064,
+      "sha256": "5cece987376bca873b0649e8d3c2cc312ce62efca88669fa18463d82972fa97c"
+    },
+    {
+      "path": "storm/aetheria-final-metal.png",
+      "bytes": 51048,
+      "sha256": "077f0d49f4c1d864e4deb6b9d80cebd12699005dc7a1f432d08a26a7ebf22a33"
+    },
+    {
+      "path": "storm/montreal-final-metal.log",
+      "bytes": 7938,
+      "sha256": "d0a2a969b409e7be82a44d002e82d7e1e684148d8cb61e94122f625d5d45cfda"
+    },
+    {
+      "path": "storm/aetheria-final-metal.log",
+      "bytes": 7933,
+      "sha256": "2ee3085db0916942763a6ed15fa1fe9d73e99d57b83fa916a5fa6c4e91f0995a"
+    },
+    {
+      "path": "storm/locked-tests.log",
+      "bytes": 276,
+      "sha256": "a4aeef652acb1c25808b90f698a31f9828e2f92edff171b153d40c7530538369"
+    },
+    {
+      "path": "storm/asan-final-tests.log",
+      "bytes": 275,
+      "sha256": "e7aba0220a33dbaac8ac04af3b0923715988f46342c22bee5a61ca4d3c6c0e59"
+    },
+    {
+      "path": "storm/native-tests.log",
+      "bytes": 374,
+      "sha256": "5109d45311551bc3cbd04e711bd0b436ba60afdc529ad589d866512500b4a7a9"
+    },
+    {
+      "path": "storm/ogre-build-inputs.json",
+      "bytes": 1469,
+      "sha256": "0982dd0b2dab47c88a3cb1e0af574b46e7718b0c8d9aaaf6d85f4f17f283c820"
+    },
+    {
+      "path": "montreal-v2/objects/825ebe297db57af717d3a85fe50b2b71006c8c28542bd5d9454b3d9bd62cefc6",
+      "bytes": 165964,
+      "sha256": "825ebe297db57af717d3a85fe50b2b71006c8c28542bd5d9454b3d9bd62cefc6"
+    },
+    {
+      "path": "aetheria-v2/objects/926d52e0654f6d5ddea2e94c5677aece2bf60511f694813cce17989bc76b976c",
+      "bytes": 39200,
+      "sha256": "926d52e0654f6d5ddea2e94c5677aece2bf60511f694813cce17989bc76b976c"
+    },
+    {
+      "path": "studio/montreal-final/objects/77a3901edce0bebd881017265c22cb7ad58e3c1b08f48b46ecaa4b4afdfee38e",
+      "bytes": 364216,
+      "sha256": "77a3901edce0bebd881017265c22cb7ad58e3c1b08f48b46ecaa4b4afdfee38e"
+    },
+    {
+      "path": "studio/aetheria-final/objects/4fbae91f8009712abf599bf6c2c00001181ef216d99c6b67f57c4059d08c4f1c",
+      "bytes": 161508,
+      "sha256": "4fbae91f8009712abf599bf6c2c00001181ef216d99c6b67f57c4059d08c4f1c"
+    },
+    {
+      "path": "storm/merged-native-tests.log",
+      "bytes": 374,
+      "sha256": "9bed7822800d9aea98111889cde84f3281cb2332a6ec096972b844a3af4ad16f"
+    }
+  ],
+  "final_remote_receipt": "/Users/wenyan/Finalverse/dev/omega-xiii-3-4-20261119/OMEGA-XIII-3-4-FINAL-delivery.json",
+  "deployed": false,
+  "accepted_release_tagged": false
+}
