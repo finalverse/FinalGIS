@@ -7,6 +7,7 @@
 #include <QCryptographicHash>
 #include <QJsonDocument>
 #include <QElapsedTimer>
+#include <QRegularExpression>
 #include <QtEndian>
 #include <gdal.h>
 #include <ogr_api.h>
@@ -27,6 +28,11 @@ using Srs=std::unique_ptr<std::remove_pointer_t<OGRSpatialReferenceH>,decltype(&
 using Transform=std::unique_ptr<std::remove_pointer_t<OGRCoordinateTransformationH>,decltype(&OCTDestroyCoordinateTransformation)>;
 Geom geom(OGRGeometryH p){return Geom(p,OGR_G_DestroyGeometry);}
 Srs srs(const QString &text) {
+ // OSRSetFromUserInput also accepts filenames/URLs. Public tool CRS inputs are
+ // authority identifiers only; models and callers cannot turn a transform into
+ // an implicit filesystem read or remote CRS fetch.
+ static const QRegularExpression authority("^[A-Z][A-Z0-9_]{1,15}:[A-Za-z0-9_.-]{1,32}$");
+ if(!authority.match(text).hasMatch())fgis::fail("CRS must be an authority identifier; file and URL CRS inputs are refused");
  static std::once_flag setup;
  std::call_once(setup,[]{const char *paths[]={FINALGIS_PROJ_DATA_DIR,nullptr};OSRSetPROJSearchPaths(paths);OSRSetPROJEnableNetwork(false);});
  Srs p(OSRNewSpatialReference(nullptr),OSRDestroySpatialReference);

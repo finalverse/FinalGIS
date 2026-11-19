@@ -25,6 +25,8 @@ class Workflows(unittest.TestCase):
         for a,b in zip(actual,origin): self.assertAlmostEqual(a,b,places=7)
         self.call("transform", "--from", "EPSG:4326", "--to", "EPSG:2950", "--xyz", "nan,45,0", ok=False)
         self.call("transform", "--from", "garbage", "--to", "EPSG:2950", "--xyz", "0,0,0", ok=False)
+        self.call("transform", "--from", "https://127.0.0.1:9/crs", "--to", "EPSG:2950", "--xyz", "0,0,0", ok=False)
+        self.call("transform", "--from", "/etc/passwd", "--to", "EPSG:2950", "--xyz", "0,0,0", ok=False)
     def test_native_replay_and_real_source(self):
         outputs=[]
         for i in range(2):
