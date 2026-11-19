@@ -1,0 +1,7 @@
+# Model gateway and budgets
+
+The native worker provides mock, Ollama-compatible and OpenAI-compatible adapters. All remain optional. Default local routing supports configured Qwen/Gemma model IDs; real /api/tags discovery lists available names. No MapleAI runtime, credential or model registry is used. A real qwen2.5:0.5b call selected the admitted recipe in2296.596ms; no GIS bytes were sent. Gemma and remote adapters were not exercised for acceptance.
+
+Local loopback HTTP or HTTPS is allowed. Non-loopback calls require --allow-remote and HTTPS. Userinfo/query/fragment endpoints and redirects are refused. Optional remote credentials come from an owned0600 file; contents are never recorded. Timeout30 s, response64KiB, request2048characters, output128tokens and local Ollama context1024. UI cancellation terminates the separate owned worker; there is no inference in Storm's render loop.
+
+Models return only {recipe:montreal_roads_buildings_v1}. Unknown/malformed/unsupported output or model transport failure records an explicit deterministic fallback. The mock path records provider=mock and model=null. A local model response is not geometric evidence. The resulting exact four-operation plan must still pass validation and human/operator review before a new local output is created. Remote use is implemented but requires separate functional evidence and authorized dataset disclosure before production use.

@@ -1,3 +1,11 @@
+# FinalGIS
+
+**Geographic Intelligence for Living Worlds.** FinalGIS0.1 adds a native C++ geographic worker and a supported QGIS product extension. Start with [the product build and workflow guide](finalgis/README.md), [engineering acceptance](finalgis/docs/FINALGIS-ACCEPTANCE.md), and [upstream/runtime lock](finalgis/foundation.lock.json).
+
+The original QGIS source, licensing, attribution and history remain intact below. The tested desktop runtime is stable QGIS3.44.15 LTR; the source checkout retained here is development master. No upstream source rebuild or full application fork/rebranding is claimed.
+
+---
+
 <img src="images/README-md/main_logo.png" width="300">
 
 [![🧪 QGIS tests](https://github.com/qgis/QGIS/actions/workflows/run-tests.yml/badge.svg)](https://github.com/qgis/QGIS/actions/workflows/run-tests.yml?query=branch%3Amaster+event%3Apush)

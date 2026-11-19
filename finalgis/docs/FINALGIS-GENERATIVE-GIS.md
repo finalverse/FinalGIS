@@ -1,0 +1,7 @@
+# Generative geography
+
+Reality-constrained: a260 m square around longitude−73.55350350168884/latitude45.507201203216475 contains17 selected roof-derived building proxies and41 clipped centerline segments. Native processing retains source geometry, supports roof holes, triangulates with GEOS, samples a33×33 NRCan elevation grid, extrudes a constant illustrative12 m height and buffers roads by2.5 m. Widths/heights/colors are procedural, not surveyed. Source resolution and generated mesh spacing are separate; numerical CRS agreement is not geographic accuracy. No routing/walkability certification is claimed.
+
+Fictional: bounded Aetheria local metre heightfield with seed42,200 m extent,33×33 vertices and a decorative rectangular lake. It uses no Earth ellipsoid or source measurements. Same seed produces byte-identical GLB; another seed changes its hash. Terrain/water semantics are recorded. The lake is an artistic plane, not hydrology; rivers, climate, settlements and ecosystems remain future tools.
+
+GLBs use established glTF2 indexed triangles and scalar material factors. Native checks cover finite coordinates, buffer/accessor bounds, index counts and hashes; canonical Core FWD adds node/scene/static-profile admission. Upward terrain/roof winding was corrected after visual integration; earlier outputs are retained as prototype evidence. No accepted Aetheria history, resident or identity was changed.

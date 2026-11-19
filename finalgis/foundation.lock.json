@@ -1,0 +1,36 @@
+{
+  "schema": "finalgis.foundation-lock/1",
+  "preserved_checkout": {
+    "repository": "https://github.com/finalverse/FinalGIS",
+    "branch": "master",
+    "commit": "e35c88781a9baff59081dafd2a92dad969d87a6b",
+    "state": "unmodified QGIS development source; product layer isolated under finalgis/"
+  },
+  "selected_runtime": {
+    "version": "3.44.15-Solothurn",
+    "upstream_commit": "44b4ef051784192d6e4829dc008bca120e4d2388",
+    "upstream_tag": "final-3_44_15",
+    "installer": "https://download.qgis.org/downloads/macos/ltr/qgis_ltr_final-3_44_15.dmg",
+    "installer_sha256": "302547ebee16d4d38ddfd509469cc86e337b23c545307cdbe13c2c2d233ab7cb",
+    "qt": "5.15.19",
+    "python": "3.12",
+    "mode": "checksum-verified official macOS universal prebuilt + separately built native FinalGIS worker and supported PyQGIS extension",
+    "upstream_source_rebuilt": false
+  },
+  "attempted_runtime": {
+    "version": "4.2.3",
+    "commit": "b041a18904a4dc9fdada8ecb2c84385054ddfee1",
+    "installer_sha256": "cf3af3d3d228a0e2a0ab7fb6b37052ae78064d0aef93b12f41f9bd724fd23401",
+    "headless": "PASS",
+    "desktop": "startup crash matching QGIS issue67981 before plugin load",
+    "issue": "https://github.com/qgis/QGIS/issues/67981"
+  },
+  "native": {
+    "gdal": "3.13.3",
+    "proj": "9.9.0",
+    "geos": "3.15.0",
+    "qt": "6.11.1",
+    "language": "C++20 with C17 geographic ABI",
+    "fwd_source_sha256": "e3bf61cf44559226933655180111fb747f88d4e89427acf07690cbff1ced8822"
+  }
+}

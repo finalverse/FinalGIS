@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:finalgis:typed-plan:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "request",
+    "operations",
+    "publication"
+  ],
+  "properties": {
+    "schema": {
+      "const": "finalgis.typed-plan/1"
+    },
+    "request": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "publication": {
+      "const": "review_required"
+    },
+    "planning": {
+      "type": "object"
+    },
+    "operations": {
+      "const": [
+        {
+          "tool": "inspect"
+        },
+        {
+          "tool": "clip_project",
+          "target_crs": "EPSG:2950",
+          "half_extent_metres": 130
+        },
+        {
+          "tool": "road_buffer",
+          "radius_metres": 2.5
+        },
+        {
+          "tool": "generate",
+          "building_height_metres": 12,
+          "terrain_grid": 33
+        }
+      ]
+    }
+  }
+}

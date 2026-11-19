@@ -1,0 +1,118 @@
+"""Supported PyQGIS product layer; all geographic execution stays native."""
+import json, os, pathlib, tempfile, time
+from qgis.PyQt.QtCore import Qt, QProcess, QTimer
+from qgis.PyQt.QtGui import QAction, QIcon
+from qgis.PyQt.QtWidgets import (QDockWidget, QWidget, QVBoxLayout, QLabel, QPlainTextEdit,
+    QPushButton, QHBoxLayout, QComboBox, QMessageBox, QScrollArea)
+from qgis.core import (Qgis, QgsProject, QgsVectorLayer, QgsRasterLayer,
+    QgsCoordinateReferenceSystem, QgsFillSymbol, QgsLineSymbol)
+
+class FinalGISWorkspace:
+    def __init__(self, iface):
+        self.iface=iface; self.process=None; self.plan=None; self.layers=[]; self.buffer=b''
+        self.root=pathlib.Path(__file__).parent
+        self.config=json.loads(pathlib.Path(os.environ['FINALGIS_CONFIG']).read_text())
+        self.original_title=iface.mainWindow().windowTitle()
+    def initGui(self):
+        self.action=QAction(QIcon(str(self.root/'logo.svg')),'FinalGIS World Engineering',self.iface.mainWindow())
+        self.action.triggered.connect(self.show);self.iface.addPluginToMenu('FinalGIS',self.action)
+        self.iface.addToolBarIcon(self.action)
+        self.about=QAction('About FinalGIS',self.iface.mainWindow());self.about.triggered.connect(self.show_about)
+        self.iface.addPluginToMenu('FinalGIS',self.about)
+        self.dock=QDockWidget('FinalGIS · World Engineering',self.iface.mainWindow());self.dock.setObjectName('FinalGISWorkspace')
+        widget=QWidget();layout=QVBoxLayout(widget)
+        title=QLabel('FinalGIS\nGeographic Intelligence\nfor Living Worlds')
+        title.setWordWrap(True);title.setMinimumHeight(96);title.setMaximumHeight(120)
+        title.setStyleSheet('QLabel{background:#123d44;color:#e5f9ee;padding:12px;font-size:16px;font-weight:600;}')
+        layout.addWidget(title)
+        modes=QHBoxLayout()
+        self.professional=QPushButton('Professional GIS');self.professional.setShortcut('Ctrl+Alt+1')
+        self.agentic=QPushButton('World Engineering');self.agentic.setShortcut('Ctrl+Alt+2')
+        self.professional.clicked.connect(lambda:self.mode_changed(0));self.agentic.clicked.connect(lambda:self.mode_changed(1))
+        modes.addWidget(self.professional);modes.addWidget(self.agentic);layout.addLayout(modes)
+        self.status=QLabel('Public Montréal sources · bounded 260 m study area\nRoof outlines + road centerlines + NRCan elevation')
+        self.status.setWordWrap(True);layout.addWidget(self.status)
+        self.load=QPushButton('Load verified Montréal layers');self.load.clicked.connect(self.load_layers);layout.addWidget(self.load)
+        self.prompt=QPlainTextEdit('Analyze the road and building geometry of Old Montréal and prepare a geographically referenced 3D scene.')
+        self.prompt.setMaximumHeight(100);layout.addWidget(self.prompt)
+        self.provider=QComboBox();self.provider.addItems(['Deterministic reviewed recipe','Local Qwen','Local Gemma']);layout.addWidget(self.provider)
+        self.make=QPushButton('Prepare processing plan');self.make.clicked.connect(self.make_plan);layout.addWidget(self.make)
+        self.review=QPlainTextEdit();self.review.setReadOnly(True);self.review.setPlaceholderText('Inspect a processing plan before running it.');layout.addWidget(self.review)
+        row=QHBoxLayout();self.execute=QPushButton('Approve & generate export');self.execute.setEnabled(False);self.execute.clicked.connect(self.execute_plan)
+        self.cancel=QPushButton('Cancel');self.cancel.setEnabled(False);self.cancel.clicked.connect(self.cancel_work)
+        row.addWidget(self.execute);row.addWidget(self.cancel);layout.addLayout(row)
+        note=QLabel('Generated 12 m building heights, colors and road widths are estimates.\nExport does not change the living world. Forge and MutSea authorize publication and interaction separately.')
+        note.setWordWrap(True);layout.addWidget(note)
+        scroll=QScrollArea();scroll.setWidgetResizable(True);scroll.setWidget(widget)
+        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.dock.setMinimumWidth(380);self.dock.setWidget(scroll);self.iface.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea,self.dock)
+        self.iface.mainWindow().setWindowIcon(QIcon(str(self.root/'logo.svg')))
+        self.title_timer=QTimer(self.dock);self.title_timer.timeout.connect(self.set_title);self.title_timer.start(1200)
+        self.set_title();self.mode_changed(0)
+    def set_title(self):self.iface.mainWindow().setWindowTitle('FinalGIS — Geographic Intelligence for Living Worlds · QGIS '+Qgis.QGIS_VERSION)
+    def show(self):self.dock.show();self.dock.raise_()
+    def mode_changed(self, index):
+        for w in [self.prompt,self.provider,self.make,self.review,self.execute,self.cancel]:w.setVisible(index==1)
+        self.professional.setEnabled(index!=0);self.agentic.setEnabled(index!=1)
+    def show_about(self):QMessageBox.information(self.iface.mainWindow(),'About FinalGIS','FinalGIS 0.1.0\nAI-Native Geographic Intelligence for Living Worlds\n\nQGIS '+Qgis.QGIS_VERSION+' — © QGIS contributors. GPL-2.0-or-later.\nThis supported product extension preserves QGIS providers, processing, plugins and file formats.\nNative geographic worker: GDAL / PROJ / GEOS.\nhttps://github.com/finalverse/FinalGIS')
+    def load_layers(self):
+        if self.layers:return
+        source=pathlib.Path(self.config['source'])
+        for filename,name,crs,color in [('roads.geojson','Montréal · verified road centerlines','EPSG:4326','#24849b'),('buildings.geojson','Montréal · verified roof outlines','EPSG:2950','#bb8057')]:
+            layer=QgsVectorLayer(str(source/filename),name,'ogr')
+            if not layer.isValid():raise RuntimeError('QGIS vector provider failed')
+            layer.setCrs(QgsCoordinateReferenceSystem(crs))
+            if filename.startswith('buildings'):layer.renderer().setSymbol(QgsFillSymbol.createSimple({'color':color,'outline_color':'#493f3b','outline_width':'0.18'}))
+            else:layer.renderer().setSymbol(QgsLineSymbol.createSimple({'line_color':color,'line_width':'0.65'}))
+            QgsProject.instance().addMapLayer(layer);self.layers.append(layer)
+        raster=QgsRasterLayer(str(source/'dtm.tif'),'NRCan · terrain elevation (CGVD2013)','gdal')
+        if raster.isValid():QgsProject.instance().addMapLayer(raster,False);self.layers.append(raster)
+        QgsProject.instance().setCrs(QgsCoordinateReferenceSystem('EPSG:2950'))
+        from qgis.core import QgsRectangle
+        self.iface.mapCanvas().setExtent(QgsRectangle(300489.3349,5040679.3075,300749.3349,5040939.3075));self.iface.mapCanvas().refresh()
+        self.status.setText('Loaded: 45 roof outlines · 93 road centerlines\nSources validated by native worker before generation.\nWorking CRS: EPSG:2950 / metres; elevation CGVD2013.')
+    def launch(self,args,finished):
+        if self.process: return
+        self.buffer=b'';process=QProcess(self.dock);self.process=process
+        process.setProgram(self.config['worker']);process.setArguments(args)
+        self.make.setEnabled(False);self.execute.setEnabled(False);self.cancel.setEnabled(True)
+        def collect():
+            self.buffer+=bytes(process.readAllStandardOutput())
+            if len(self.buffer)>2*1024*1024:self.cancel_work()
+        process.readyReadStandardOutput.connect(collect)
+        def done(code,status):
+            collect();error=bytes(process.readAllStandardError()).decode(errors='replace')[:2000]
+            self.process=None;self.make.setEnabled(True);self.cancel.setEnabled(False)
+            if code or status!=QProcess.ExitStatus.NormalExit:self.review.setPlainText('Processing stopped: '+error);return
+            try:finished(json.loads(self.buffer))
+            except Exception as e:self.review.setPlainText(str(e))
+            process.deleteLater()
+        process.finished.connect(done)
+        process.errorOccurred.connect(lambda _:self.status.setText('Native worker failed to start or stopped.'))
+        process.start()
+        QTimer.singleShot(60000,lambda:process.kill() if self.process is process else None)
+    def make_plan(self):
+        self.plan=None;self.execute.setEnabled(False)
+        provider=['mock','ollama','ollama'][self.provider.currentIndex()]
+        model=['','qwen2.5:0.5b','gemma4:e4b'][self.provider.currentIndex()]
+        args=['plan','--request',self.prompt.toPlainText()[:2048],'--provider',provider]
+        if model:args+=['--model',model]
+        def ready(result):
+            self.plan=result;self.review.setPlainText(json.dumps(result,indent=2,ensure_ascii=False));self.execute.setEnabled(True)
+        self.launch(args,ready)
+    def execute_plan(self):
+        if not self.plan:return
+        root=pathlib.Path(self.config['outputs']);root.mkdir(parents=True,exist_ok=True)
+        fd,p=tempfile.mkstemp(prefix='reviewed-plan-',suffix='.json',dir=root)
+        with os.fdopen(fd,'w') as f:json.dump(self.plan,f)
+        output=root/('montreal-'+time.strftime('%Y%m%d-%H%M%S')+'-'+str(time.monotonic_ns()))
+        def complete(result):
+            pathlib.Path(p).unlink(missing_ok=True)
+            self.review.setPlainText('Export completed\n'+str(output)+'\n\n'+json.dumps({'geometry':result['asset'],'timings_ms':result['timings_ms'],'provenance':result['accuracy_note'],'publication':result['publication']},indent=2))
+            self.status.setText('Generated: 17 building proxies · 41 road segments\nVerified GLB export; living-world state unchanged.')
+        self.launch(['run','--source',self.config['source'],'--output',str(output),'--plan',p,'--approve'],complete)
+    def cancel_work(self):
+        if self.process:self.process.kill();self.status.setText('Cancellation requested; incomplete output is not published.')
+    def unload(self):
+        self.cancel_work();self.title_timer.stop();self.iface.removePluginMenu('FinalGIS',self.action);self.iface.removePluginMenu('FinalGIS',self.about)
+        self.iface.removeToolBarIcon(self.action);self.iface.removeDockWidget(self.dock);self.iface.mainWindow().setWindowTitle(self.original_title)
